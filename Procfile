@@ -1,1 +1,1 @@
-worker: python magghybot.py
+worker: python sample.py
