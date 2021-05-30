@@ -1,1 +1,1 @@
-worker: python sample.py
+web: gunicorn --workers 4 --bind 0.0.0.0:5000 sample:app
