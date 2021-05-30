@@ -1,1 +1,1 @@
-worker: python3 sample.py
+worker: python sample.py
