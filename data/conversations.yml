@@ -1,7 +1,7 @@
 runtime: python
 
 runtime_config:
-    python_version: 3.9.2
+    python_version: 3.6.3
 
 
 categories:
