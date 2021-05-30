@@ -13,11 +13,11 @@ trainer.train("data/compliment.yml")
 
 @app.route("/")
 def index():
-     return render_template("index.html") #to send context to html
+     return render_template("index.html")
 
 @app.route("/get")
 def get_bot_response():
-     userText = request.args.get("msg") #get data from input,we write js  to index.html
+     userText = request.args.get("msg")
      return str(portuguese_bot.get_response(userText))
 
 
