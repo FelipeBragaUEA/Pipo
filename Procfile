@@ -1,2 +1,1 @@
-web: gunicorn sample:app
-web: gunicorn run:sample
+web gunicorn sample:app
