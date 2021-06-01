@@ -1,1 +1,1 @@
-webg gunicorn sample:app
+web gunicorn sample:app
