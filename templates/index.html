@@ -1,53 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <meta charset="utf-8" />
-        <title>Pipo - Chatbot Infantil</title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/estilo.css') }}">
-        <link href="https://fonts.googleapis.com/css?family=K2D:300,400,500,700,800" rel="stylesheet">
-    </head>
-    
-    <body>
-        <div id="wrapper">
-            <div id="menu">
-                <p class="welcome">Pipo<b></b></p>
-                <p class="logout"><a id="exit" href="http://papertoilet.com/">Sair</a></p>
-            </div>
- 
-            <div id="chatbox">
-                <p class = "botText"><span>Oi, eu sou o Pipo!</span></p>
-            </div>
- 
-            <form id = "userInput" name="message" action="">
-                <input name="textInput" type="text" id="textInput" placeholder="Me dá bom dia aí" />
-                <input name="buttonInput" type="submit" id="buttonInput" value="Enviar" />
-            </form>
-        </div>
-        <script>
-            var botao = document.querySelector('#buttonInput');
+<html>
+<head>
+<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+<h1>Pipo Chatbot</h1>
+<div>
+<div id = "chatbox">
+<p class = "botText"><span>Oi, eu sou o Pipo!</span></p>
+</div>
+<div id = "userInput">
+<input id ="textInput" type ="text" name="msg" placeholder="Message">
+<input id = "buttonInput" type = "submit" value="Send">
+</div>
 
-            function getBotResponse(){
-            var rawText = $("#textInput").val();
-            var userHtml = '<p class = "userText"><span>' + rawText + '</span></p>';
-            $("#textInput").val("");
-            $("#chatbox").append(userHtml);
-            document.getElementById('userInput').scrollIntoView({block:'start',behaviour:'smooth'});
-            $.get("/get", {msg:rawText }).done(function(data) {
-            var botHtml = '<p class ="botText"><span>' + data + '</span></p>';
-            $("#chatbox").append(botHtml);
-            document.getElementById('userInput').scrollIntoView({block : 'start',behaviour:'smooth'});
-            });
-            }
-            $("#textInput").keypress(function(e) {
-            if(e.which == 13) {
-            getBotResponse();
-            }
-            });
-            $("#buttonInput").click(function() {
-                event.preventDefault();
-                getBotResponse();
-            })
-            </script>
-    </body>
+
+<script>
+function getBotResponse(){
+var rawText = $("#textInput").val();
+var userHtml = '<p class = "userText"><span>' + rawText + '</span></p>';
+$("#textInput").val("");
+$("#chatbox").append(userHtml);
+document.getElementById('userInput').scrollIntoView({block:'start',behaviour:'smooth'});
+$.get("/get", {msg:rawText }).done(function(data) {
+var botHtml = '<p class ="botText"><span>' + data + '</span></p>';
+$("#chatbox").append(botHtml);
+document.getElementById('userInput').scrollIntoView({block : 'start',behaviour:'smooth'});
+});
+}
+$("#textInput").keypress(function(e) {
+if(e.which == 13) {
+getBotResponse();
+}
+});
+$("#buttonInput").click(function() {
+getBotResponse();
+})
+</script>
+</div>
+</body>
 </html>
