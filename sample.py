@@ -7,8 +7,6 @@ portuguese_bot = ChatBot("Chatterbot",storage_adapter="chatterbot.storage.SQLSto
 trainer = ChatterBotCorpusTrainer(portuguese_bot)
 trainer.train("chatterbot.corpus.portuguese")
 trainer.train("data/data.yml")
-trainer.train("data/conversations.yml")
-trainer.train("data/compliment.yml")
 
 
 @app.route("/")
